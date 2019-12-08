@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+       <ui:composition template="/Template/about.xhtml">
+       <ui:define name="content">
+      
+ <h:head></h:head> 
+ <style type="text/css">
+    .ui-datalist .ui-datalist-content {
+        border:0 none
+    }
+ 
+    .ui-datalist ul {
+        padding:0px 10px 0 20px;
+        margin: 5px 0;
+    }
+ 
+    .label, .value {
+        vertical-align: top
+    }
+ 
+    .output {
+        font-weight: bold
+    }
+ 
+    .ui-selectmanymenu {
+        width: 175px;
+    }
+</style>
+ 
+ 
+<body> 
+<h:form id="form">
+<h1>Connexion</h1> 
+
+<table>
+<tr>
+<td> select packName</td>
+<td>
+<h:selectOneMenu value="#{packProduct.packId}">
+
+ <f:selectItems value="#{packProduct.packs}" var="emp"
+                           itemLabel="#{emp.packName}" itemValue="#{emp.packId}"/>
+</h:selectOneMenu>
+</td>
+</tr>
+<tr>
+<td>Select products</td>
+<td>
+<h:selectManyListbox value="#{packProduct.productId}" >
+ <f:selectItems value="#{packProduct.products}" var="emp"
+                           itemLabel="#{emp.title}" itemValue="#{emp.productId}"/>
+</h:selectManyListbox>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+<h:message for="btn"/> 
+
+<h:commandButton id="btn" value="Affect Products" action="#{packProduct.addProduct()}" />
+</td>
+</tr>
+</table>
+</h:form>
+
+
+</body> 
+ </ui:define>
+      </ui:composition> 
+</html> 
