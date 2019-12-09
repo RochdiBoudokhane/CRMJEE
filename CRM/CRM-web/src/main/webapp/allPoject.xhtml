@@ -1,0 +1,35 @@
+<ui:composition xmlns ="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:p="http://primefaces.org/ui"
+      template="/Template/about.xhtml">
+            <ui:define name ="content">
+
+ <h:form id="form">
+ 
+<h:dataTable class="table table-striped custom-table m-b-0 datatable" value="#{ProjetBean.list}" var="cl" >
+									
+									
+											<h:column><f:facet name = "header">Project Id</f:facet> <h:outputText value="#{cl.projectId}" /></h:column>
+											<h:column><f:facet name = "header">Start Date</f:facet><h:outputText value="#{cl.datebegin}" /></h:column>
+											<h:column><f:facet name = "header">End Date</f:facet><h:outputText value="#{cl.dateEnd}" /></h:column>
+											<h:column><f:facet name = "header">Description</f:facet><h:outputText value="#{cl.description}" /></h:column>
+											<h:column><f:facet name = "header">Max number of resources</f:facet><h:outputText value="#{cl.maxNbrresource}" /></h:column>
+											<h:column><f:facet name = "header">Min number of resources</f:facet><h:outputText value="#{cl.minNbrResource}" /></h:column>
+											<h:column><f:facet name = "header">Project Name</f:facet><h:outputText value="#{cl.name}" /></h:column>
+											<h:column><f:facet name = "header">State</f:facet><h:outputText value="#{cl.state}" /></h:column>
+											<h:column><f:facet name = "header">Total Number Of resources</f:facet><h:outputText value="#{cl.totaleNbrResource}" /></h:column>
+											<h:column><h:commandLink value="Delete" action="#{ProjetBean.suppr(cl.projectId)}" onclick="return confirm('are you sure to delete!')" /></h:column>
+											<h:column><h:commandLink value="edit" action="#{ProjetBean.editer()}"  /></h:column>
+						
+								
+</h:dataTable>
+<h:commandButton id="btn" value="add project" action="addproject.xhtml?faces-redirect=true"  >
+
+</h:commandButton>
+</h:form>
+</ui:define>
+</ui:composition>
+
+

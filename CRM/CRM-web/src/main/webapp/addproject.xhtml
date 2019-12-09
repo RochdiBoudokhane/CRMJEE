@@ -1,0 +1,36 @@
+<ui:composition xmlns ="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:p="http://primefaces.org/ui"
+      template="/Template/about.xhtml">
+            <ui:define name ="content">
+     
+ <h:head></h:head> 
+<body> 
+<h:form id="form">
+<h1>Ajouter Projet</h1> 
+<h:panelGrid columns="2">
+
+<h:outputText value="Start Date" /><p:calendar pattern="dd/MM/yyyy" locale="pt" value="#{ProjetBean.datebegin}" />
+<h:outputText value="End Date" /><p:calendar value="#{ProjetBean.dateEnd}"/>
+<h:outputText value="description" /> <h:inputText value="#{ProjetBean.description}" />
+<h:outputText value="maxNbrresource" /> <h:inputText value="#{ProjetBean.maxNbrresource}" />
+<h:outputText value="minNbrResource" /> <h:inputText value="#{ProjetBean.minNbrResource}" />
+<h:outputText value="Name" /> <h:inputText value="#{ProjetBean.name}" />
+<h:outputText value="State" /> <h:inputText value="#{ProjetBean.state}" />
+<h:outputText value="total" /> <h:inputText value="#{ProjetBean.totaleNbrResource}" />
+
+
+
+<h:commandButton id="btn" value="Add" action="#{ProjetBean.Ajoutproj()}" />
+
+
+
+
+<h:message for="btn"/> 
+</h:panelGrid> 
+</h:form>
+</body>  
+</ui:define>
+</ui:composition>
